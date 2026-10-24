@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123d2c">
+<title>پایگاه رسمی آیت‌الله بحبحانی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme="light"]{--green:#123d2c;--green2:#1a5f3f;--gold:#c9a961;--cream:#f7f5ef;--ink:#1d2a23;--muted:#6d786f;--line:#e7e4d9;--white:#fff;--bg:#fff;--panel:#fff;--soft:#f7f5ef;--shadow:0 18px 50px #173b2b12;--danger:#b3261e;--warning:#a36b1c;--info:#1d6ba8;--success:#1a7f3f}
+[data-theme="dark"]{--green:#c9a961;--green2:#e6c989;--gold:#e6c989;--cream:#0f1a14;--ink:#e8ede9;--muted:#98a69b;--line:#243428;--white:#0f1a14;--bg:#0a1410;--panel:#0f1a14;--soft:#0d1812;--shadow:0 18px 50px #0006;--danger:#e07a63;--warning:#d4a35f;--info:#6fb4e5;--success:#5fd98a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.9;transition:background .3s,color .3s}
+button,input,textarea,select{font:inherit;color:inherit}button,a{cursor:pointer}a{color:inherit;text-decoration:none}button{border:0;background:transparent}
+.container{width:min(1160px,calc(100% - 40px));margin:auto}
+.topline{background:var(--green);color:#f8f4e8;font-size:12px;padding:7px 0}
+[data-theme="dark"] .topline{background:#0a1410;border-bottom:1px solid var(--line)}
+.topline .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.sync-dot{display:inline-flex;align-items:center;gap:6px;font-size:11px}
+.sync-dot i{width:7px;height:7px;border-radius:50%;background:#8fa797}
+.sync-dot.ok i{background:#5fd98a;box-shadow:0 0 0 3px #5fd98a30}
+.sync-dot.err i{background:#e07a63}
+.theme-toggle{background:transparent;color:var(--gold);font-size:16px;padding:2px 6px;border-radius:6px}
+.header{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+[data-theme="light"] .header{background:#fffffff2}
+[data-theme="dark"] .header{background:#0a1410e6}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+.seal{width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);background:var(--green);font-size:24px;box-shadow:inset 0 0 0 4px #123d2c,inset 0 0 0 5px #c9a96155;flex-shrink:0}
+[data-theme="dark"] .seal{background:#1a3324}
+.brand strong{display:block;font-size:15px;color:var(--green);line-height:1.6}
+.brand small{display:block;color:var(--muted);font-size:11px}
+.links{display:flex;gap:22px;align-items:center;font-size:13px;color:var(--ink);opacity:.85}
+.links a:hover,.links a.active{color:var(--green2);opacity:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:10px;background:var(--green2);color:#fff;font-weight:600;font-size:13px;transition:.2s;box-shadow:0 5px 16px #1a5f3f20;border:none}
+[data-theme="dark"] .btn{background:var(--green);color:#0a1410}
+.btn:hover{transform:translateY(-2px);background:var(--green)}
+[data-theme="dark"] .btn:hover{background:var(--green2)}
+.btn.gold{background:var(--gold);color:#1d2a23}
+.btn.ghost{background:transparent;color:var(--green);border:1px solid var(--line);box-shadow:none}
+[data-theme="dark"] .btn.ghost{color:var(--green2)}
+.btn.danger{background:var(--danger);color:#fff}
+.btn.success{background:var(--success);color:#fff}
+.btn.small{padding:7px 12px;font-size:12px}
+.btn.full{width:100%}
+.menu-toggle{display:none;background:transparent;color:var(--green);font-size:25px}
+.user-chip{display:inline-flex;align-items:center;gap:8px;padding:4px 10px 4px 4px;background:var(--soft);border-radius:24px;font-size:12px;color:var(--green);font-weight:600;border:1px solid var(--line)}
+[data-theme="dark"] .user-chip{color:var(--green2)}
+.user-chip .av{width:28px;height:28px;border-radius:50%;background:var(--green2);color:#fff;display:grid;place-items:center;font-size:12px;overflow:hidden;flex-shrink:0}
+.user-chip .av img{width:100%;height:100%;object-fit:cover}
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 15% 20%,#285a43 0,transparent 35%),linear-gradient(120deg,#0d2d20,#174b34 65%,#102f22);color:#fff;padding:82px 0 72px;min-height:430px}
+[data-theme="dark"] .hero{background:radial-gradient(ellipse at 15% 20%,#1a3324 0,transparent 35%),linear-gradient(120deg,#05100a,#0d2d20 65%,#081510)}
+.hero-pattern{position:absolute;inset:0;opacity:.09;background-image:linear-gradient(30deg,transparent 48%,#c9a961 49%,transparent 50%),linear-gradient(150deg,transparent 48%,#c9a961 49%,transparent 50%);background-size:54px 54px}
+.hero-inner{position:relative;z-index:1;max-width:760px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#e6d5a7;font-size:12px;font-weight:600}
+.eyebrow:before{content:"";height:1px;width:30px;background:var(--gold)}
+h1.hero-title{font-size:clamp(30px,4.5vw,51px);line-height:1.55;margin:17px 0 15px;font-weight:800;color:#fff}
+.hero p{color:#e0e9e2;max-width:650px;font-size:15px;margin:0 0 27px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero .ghost{color:white;border-color:#ffffff50}
+.hero-meta{display:flex;gap:25px;flex-wrap:wrap;margin-top:35px;color:#c8d8cc;font-size:12px}
+.hero-meta span{display:flex;align-items:center;gap:8px}
+.hero-meta i{width:6px;height:6px;background:var(--gold);border-radius:50%}
+.section{padding:70px 0}
+.section.soft{background:var(--cream)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:27px;flex-wrap:wrap}
+.section-kicker{font-size:11px;color:var(--green2);font-weight:700}
+.section h2{font-size:clamp(23px,3vw,31px);color:var(--green);margin:4px 0 0;line-height:1.5}
+.section-sub{font-size:13px;color:var(--muted);margin:7px 0 0}
+.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.article-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel);transition:.25s;box-shadow:0 4px 20px #102f2205;display:flex;flex-direction:column}
+.article-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.article-cover{height:170px;display:grid;place-items:center;background:linear-gradient(135deg,#173e2d,#286448);color:#d7c18a;position:relative;background-size:cover;background-position:center}
+.article-cover:after{content:"۞";font-size:65px;opacity:.9}
+.article-cover.has-img:after{display:none}
+.article-cover.c2{background:linear-gradient(135deg,#e8e0cd,#c9b98f);color:#214b35}
+.article-cover.c3{background:linear-gradient(135deg,#213d34,#5a755e)}
+.article-cover.c4{background:linear-gradient(135deg,#eee9df,#d6c8a8);color:#1a5f3f}
+.article-cover.c5{background:linear-gradient(135deg,#143c2b,#417354)}
+.article-cover.c6{background:linear-gradient(135deg,#e7e0d2,#b4c4b5);color:#1a5f3f}
+.card-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.tag{display:inline-block;padding:3px 9px;background:var(--soft);color:var(--green2);border-radius:20px;font-size:10px;font-weight:600;align-self:flex-start;border:1px solid var(--line)}
+.card-body h3{font-size:16px;line-height:1.8;margin:11px 0 8px;color:var(--green)}
+.card-body p{font-size:12px;color:var(--muted);margin:0 0 15px;line-height:2;flex:1}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.card-tags .tag{font-size:9px;padding:2px 6px}
+.card-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:13px;color:var(--muted);font-size:10px;gap:8px;flex-wrap:wrap}
+.read-link{color:var(--green2);font-size:12px;font-weight:700}
+.article-stats-line{display:flex;gap:10px;font-size:10px;color:var(--muted);margin-bottom:8px}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+.about-art{min-height:320px;border-radius:22px;background:linear-gradient(140deg,#153b2a,#245b3d);display:grid;place-items:center;color:var(--gold);font-size:90px}
+.about-copy p{font-size:14px;color:var(--muted)}
+.feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:24px}
+.feature{border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;gap:11px;align-items:center;font-size:12px}
+.feature b{display:block;color:var(--green);font-size:13px}
+.feature-icon{width:36px;height:36px;border-radius:10px;background:var(--soft);color:var(--green2);display:grid;place-items:center;font-size:17px;flex-shrink:0}
+.eitaa-band{background:#f5f0e3;border:1px solid #e7dcc0;border-radius:20px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+[data-theme="dark"] .eitaa-band{background:#0f1a14;border-color:var(--line)}
+.eitaa-icon{width:55px;height:55px;background:#d9e8f0;border-radius:16px;display:grid;place-items:center;color:#2778a8;font-size:25px;flex-shrink:0}
+.eitaa-copy{display:flex;align-items:center;gap:17px}
+.eitaa-copy h3{margin:0;color:var(--green);font-size:18px}
+.eitaa-copy p{margin:4px 0 0;font-size:12px;color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px}
+.contact-info{background:var(--green);color:white;padding:28px;border-radius:18px}
+[data-theme="dark"] .contact-info{background:#0a1410;border:1px solid var(--line)}
+.contact-info h3{margin-top:0}
+.contact-info p{font-size:13px;color:#d5e2d8}
+.contact-row{padding:13px 0;border-top:1px solid #ffffff20;font-size:13px}
+.contact-row small{display:block;color:#b8d0bf}
+.form-card{border:1px solid var(--line);border-radius:18px;padding:27px;background:var(--panel)}
+.form-card h3{margin:0 0 18px;color:var(--green)}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:12px;font-weight:600;color:var(--muted)}
+.field small.hint{font-size:10px;color:var(--muted)}
+.field input,.field textarea,.field select,.search-input{width:100%;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:11px 13px;outline:none;font-size:13px;transition:.2s;font-family:inherit}
+.field input.ltr{direction:ltr;text-align:left}
+.field input:focus,.field textarea:focus,.field select:focus,.search-input:focus{border-color:var(--green2);box-shadow:0 0 0 3px #1a5f3f13}
+.field textarea{min-height:115px;resize:vertical}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field-error{color:var(--danger);font-size:11px;margin-top:4px;display:none}
+.field-error.show{display:block}
+.pw-wrap{position:relative}
+.pw-toggle{position:absolute;left:10px;top:50%;transform:translateY(-50%);background:transparent;color:var(--muted);font-size:14px;padding:4px}
+.footer{background:#0d2b1e;color:#d8e2da;padding:43px 0 20px}
+[data-theme="dark"] .footer{background:#05100a;border-top:1px solid var(--line)}
+.footer-grid{display:grid;grid-template-columns:1.2fr .8fr 1fr;gap:35px}
+.footer h4{color:#f2e4bd;margin:0 0 13px}
+.footer p,.footer a{font-size:12px;color:#b8c8bc}
+.footer-links{display:grid;gap:7px}
+.copyright{border-top:1px solid #ffffff1c;margin-top:30px;padding-top:17px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:10px;color:#8fa797}
+.page-title{background:var(--cream);padding:35px 0;border-bottom:1px solid var(--line)}
+.page-title h1{font-size:30px;color:var(--green);margin:0}
+.breadcrumbs{font-size:11px;color:var(--muted);margin-top:7px}
+.breadcrumbs a{color:var(--green2)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.toolbar>*{flex:1;min-width:150px}
+.empty{text-align:center;padding:40px;color:var(--muted);border:1px dashed var(--line);border-radius:15px}
+.article-detail{max-width:820px;margin:auto}
+.article-detail h1{color:var(--green);font-size:clamp(27px,4vw,39px);line-height:1.5}
+.detail-meta{display:flex;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line);padding:12px 0 20px}
+.detail-cover{height:270px;border-radius:18px;margin:25px 0;display:grid;place-items:center;background:linear-gradient(135deg,#153b2a,#286448);color:var(--gold);font-size:90px;background-size:cover;background-position:center}
+.prose{font-size:16px;line-height:2.35;color:var(--ink)}
+.prose p{margin:0 0 20px}
+.prose h2,.prose h3,.prose h4{color:var(--green);margin-top:30px}
+.prose blockquote{border-right:3px solid var(--gold);padding:8px 16px;background:var(--soft);border-radius:8px;color:var(--muted);margin:16px 0}
+.prose ul,.prose ol{padding-right:22px}
+.prose code{background:var(--soft);padding:2px 6px;border-radius:4px;direction:ltr;display:inline-block}
+.prose img{max-width:100%;border-radius:10px}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin:25px 0;align-items:center}
+.like-btn,.bookmark-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:var(--soft);border:1px solid var(--line);font-size:12px;font-weight:600}
+.like-btn.liked{background:#fde0dc;border-color:#f5a79a;color:#b3261e}
+.bookmark-btn.bookmarked{background:#fff4db;border-color:#e6c989;color:#8a6d1f}
+.article-layout{display:grid;grid-template-columns:1fr 260px;gap:30px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}}
+.toc{position:sticky;top:100px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px;max-height:80vh;overflow:auto;font-size:12px}
+.toc h4{margin:0 0 10px;color:var(--green);font-size:13px}
+.toc ul{list-style:none;padding:0;margin:0;display:grid;gap:5px}
+.toc a{color:var(--muted);display:block;padding:4px 6px;border-radius:6px;font-size:12px}
+.comments{margin-top:40px;border-top:1px solid var(--line);padding-top:25px}
+.comment{padding:14px 0;border-bottom:1px solid var(--line)}
+.comment.reply{padding-right:25px;border-right:2px solid var(--line)}
+.comment strong{color:var(--green);font-size:13px}
+.comment p{font-size:13px;margin:5px 0}
+.comment .cm-meta{font-size:10px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.comment .cm-meta button{font-size:10px;color:var(--muted);text-decoration:underline}
+.reply-form{margin-top:10px;background:var(--soft);border-radius:10px;padding:12px}
+.auth-wrap{background:var(--cream);min-height:70vh;padding:50px 0}
+.auth-card{max-width:480px;margin:auto;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--shadow)}
+.auth-card h1{font-size:24px;color:var(--green);margin:0 0 6px}
+.auth-card .sub{font-size:12px;color:var(--muted);margin:0 0 22px}
+.auth-foot{margin-top:18px;text-align:center;font-size:12px;color:var(--muted)}
+.auth-foot a{color:var(--green2);font-weight:600}
+.admin-wrap{background:var(--cream);min-height:70vh;padding:35px 0}
+.admin-dash{max-width:1150px;margin:auto}
+.admin-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:22px;flex-wrap:wrap}
+.admin-top h1{font-size:26px;color:var(--green);margin:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:22px}
+.stat{padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.stat small{color:var(--muted);font-size:11px}
+.stat strong{display:block;color:var(--green);font-size:26px}
+.admin-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.admin-tab{padding:8px 13px;border-radius:9px;font-size:12px;font-weight:600;color:var(--muted)}
+.admin-tab.active{background:var(--green);color:#fff}
+[data-theme="dark"] .admin-tab.active{color:#0a1410}
+.admin-panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px;margin-bottom:18px}
+.admin-panel h3{margin:0 0 14px;color:var(--green);font-size:16px}
+.admin-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.admin-item{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;padding:13px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.admin-item:last-child{border:0}
+.admin-item strong{display:block;font-size:13px}
+.admin-item small{color:var(--muted);font-size:11px;display:block;line-height:1.7}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700}
+.badge.green{background:#e6f4ea;color:#1a7f3f}
+.badge.amber{background:#fff4db;color:#8a6d1f}
+.badge.red{background:#fdeaea;color:#b3261e}
+.badge.gray{background:#eef0ea;color:#5a665c}
+.badge.blue{background:#e0eefa;color:#1d6ba8}
+.badge.purple{background:#f0e6f7;color:#6a3d9a}
+[data-theme="dark"] .badge.green{background:#1a3a24;color:#5fd98a}
+[data-theme="dark"] .badge.amber{background:#3a2f10;color:#e6c989}
+[data-theme="dark"] .badge.red{background:#3a1a16;color:#e07a63}
+[data-theme="dark"] .badge.blue{background:#152a3a;color:#6fb4e5}
+[data-theme="dark"] .badge.purple{background:#241833;color:#c9a0e6}
+.notice{padding:12px 14px;background:#fff4db;border:1px solid #ead7a8;color:#69552a;border-radius:10px;font-size:11px;margin:12px 0;line-height:1.9}
+[data-theme="dark"] .notice{background:#1a2418;border-color:#3a2f10;color:#e6c989}
+.notice.danger{background:#fdecea;border-color:#f0b6ad;color:#8a2a20}
+.notice.success{background:#e6f4ea;border-color:#a5d6b6;color:#1a7f3f}
+.hidden{display:none!important}
+.toast{position:fixed;bottom:22px;left:22px;z-index:300;background:var(--green);color:#fff;padding:12px 18px;border-radius:10px;box-shadow:var(--shadow);font-size:12px;max-width:340px}
+[data-theme="dark"] .toast{color:#0a1410}
+.toast.err{background:var(--danger);color:#fff}
+.toast.success{background:var(--success);color:#fff}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fade .55s ease both}
+.loading-overlay{position:fixed;inset:0;background:#0d2b1ef2;z-index:400;display:grid;place-items:center;color:#e6d5a7;font-size:13px}
+.loading-overlay .spinner{width:38px;height:38px;border:3px solid #c9a96140;border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.modal-back{position:fixed;inset:0;background:#0d2b1ecc;z-index:250;display:grid;place-items:center;padding:20px;overflow-y:auto}
+.modal-box{background:var(--panel);border-radius:18px;padding:26px;max-width:520px;width:100%;box-shadow:var(--shadow);max-height:92vh;overflow:auto;position:relative}
+.modal-box.lg{max-width:800px}
+.modal-box h3{margin:0 0 12px;color:var(--green)}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
+.modal-close{position:absolute;top:12px;left:12px;color:var(--muted);font-size:20px;padding:4px}
+.cover-preview{width:100%;height:180px;border-radius:12px;border:2px dashed var(--line);background:var(--soft) center/cover no-repeat;display:grid;place-items:center;color:var(--muted);font-size:12px;margin-bottom:10px;cursor:pointer}
+.cover-preview.has{background-size:cover;border-style:solid}
+.avatar-lg{width:88px;height:88px;border-radius:50%;background:var(--green2);color:#fff;display:grid;place-items:center;font-size:34px;font-weight:700;margin:auto;overflow:hidden;cursor:pointer;position:relative}
+.avatar-lg img{width:100%;height:100%;object-fit:cover}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.media-item{border:2px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:1;background:var(--soft);position:relative}
+.media-item.selected{border-color:var(--green2)}
+.media-item img{width:100%;height:100%;object-fit:cover}
+.media-item .del{position:absolute;top:4px;left:4px;background:#b3261ecc;color:#fff;border-radius:50%;width:22px;height:22px;font-size:12px;display:grid;place-items:center}
+.editor-toolbar{display:flex;gap:3px;flex-wrap:wrap;padding:8px;background:var(--soft);border:1px solid var(--line);border-bottom:none;border-radius:10px 10px 0 0}
+.editor-toolbar button{padding:5px 9px;font-size:13px;border-radius:6px;color:var(--ink);font-weight:600}
+.editor-toolbar button:hover{background:var(--panel)}
+.editor-area{min-height:250px;max-height:600px;overflow:auto;border:1px solid var(--line);border-radius:0 0 10px 10px;padding:14px;background:var(--panel);outline:none;line-height:2;font-size:14px}
+.editor-area h2{font-size:22px;color:var(--green);margin:20px 0 12px}
+.editor-area h3{font-size:18px;color:var(--green);margin:16px 0 10px}
+.editor-area blockquote{border-right:3px solid var(--gold);padding:6px 14px;background:var(--soft);margin:10px 0;border-radius:6px}
+.editor-area img{max-width:100%;border-radius:8px}
+.chart{display:flex;align-items:flex-end;gap:6px;height:150px;padding:10px 0}
+.chart .bar{flex:1;min-width:20px;background:linear-gradient(180deg,var(--green2),var(--green));border-radius:6px 6px 0 0;position:relative}
+.chart .bar-label{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--muted);white-space:nowrap}
+.chart .bar-val{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--green);font-weight:700}
+.chart-wrap{padding-bottom:28px}
+.notif-head{padding:12px 15px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.notif-item{padding:12px 15px;border-bottom:1px solid var(--line);font-size:12px}
+.notif-item.unread{background:#f0f5f0}
+[data-theme="dark"] .notif-item.unread{background:#152a1e}
+.notif-item small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.notif-item p{margin:0;font-size:12px}
+.back-to-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;font-size:20px;z-index:100;box-shadow:var(--shadow);display:none;place-items:center}
+[data-theme="dark"] .back-to-top{color:#0a1410}
+.back-to-top.show{display:grid}
+.reading-progress{position:fixed;top:0;right:0;height:3px;background:var(--gold);z-index:999;width:0;transition:width .1s}
+.pagination{display:flex;gap:6px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.pagination button{padding:7px 12px;border-radius:8px;background:var(--panel);border:1px solid var(--line);font-size:12px}
+.pagination button.active{background:var(--green);color:#fff}
+[data-theme="dark"] .pagination button.active{color:#0a1410}
+.tabs-line{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs-line button{padding:7px 12px;border-radius:8px;background:var(--panel);border:1px solid var(--line);font-size:12px}
+.tabs-line button.active{background:var(--green);color:#fff}
+[data-theme="dark"] .tabs-line button.active{color:#0a1410}
+.maint-banner{background:var(--warning);color:#fff;padding:8px;text-align:center;font-size:12px}
+@media(max-width:850px){.links{gap:13px}.article-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:30px}.footer-grid{grid-template-columns:1fr 1fr}.field-row{grid-template-columns:1fr}}
+@media(max-width:650px){.container{width:min(100% - 28px,1160px)}.nav{height:64px}.menu-toggle{display:block}.links{display:none;position:absolute;top:64px;right:0;left:0;padding:18px;background:var(--panel);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:12px}.links.open{display:flex}.hero{padding:58px 0 48px;min-height:0}.article-grid{grid-template-columns:1fr}.about-grid,.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.admin-item{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+<div id="maintBanner" class="maint-banner hidden">⚠️ سایت در حالت تعمیرات است.</div>
+<div class="topline"><div class="container">
+  <span>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+  <div style="display:flex;gap:12px;align-items:center">
+    <span class="sync-dot" id="syncDot"><i></i><span id="syncText">آماده</span></span>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+  </div>
+</div></div>
+
+<header class="header"><div class="container nav">
+  <a class="brand" href="#/"><span class="seal">۞</span><span><strong id="brandTitle">پایگاه رسمی آیت‌الله بحبحانی</strong><small id="brandSub">معارف، اندیشه و بصیرت</small></span></a>
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <nav class="links" id="navLinks">
+    <a href="#/">خانه</a><a href="#/articles">مقالات</a><a href="#/about">درباره</a><a href="#/contact">تماس</a><a href="#/stats">آمار</a>
+  </nav>
+  <div class="nav-right" id="authArea"></div>
+</div></header>
+
+<main id="app">
+  <div id="homeView">
+    <section class="hero"><div class="hero-pattern"></div><div class="container"><div class="hero-inner fade">
+      <span class="eyebrow">پایگاه رسمی نشر معارف</span>
+      <h1 class="hero-title">چراغی برای اندیشه،<br>راهی به سوی معرفت</h1>
+      <p>به پایگاه اطلاع‌رسانی آیت‌الله بحبحانی خوش آمدید؛ بستری برای مقالات، دیدگاه‌ها و محتوای معرفتی.</p>
+      <div class="hero-actions"><a class="btn gold" href="#/articles">مطالعه مقالات <span>←</span></a><a class="btn ghost" href="#/about">آشنایی</a></div>
+      <div class="hero-meta"><span><i></i>محتوای معرفتی</span><span><i></i>دسترسی آزاد</span><span><i></i>ارتباط ایتا</span></div>
+    </div></div></section>
+
+    <section class="section"><div class="container">
+      <div class="section-head"><div><span class="section-kicker">کتابخانه</span><h2>تازه‌ترین مقالات</h2><p class="section-sub">گزیده‌ای از مطالب منتشرشده</p></div><a class="read-link" href="#/articles">همه ←</a></div>
+      <div class="article-grid" id="homeArticles"></div>
+      <div style="text-align:center;margin-top:28px"><a class="btn ghost" href="#/articles">آرشیو مقالات</a></div>
+    </div></section>
+
+    <section class="section soft"><div class="container about-grid">
+      <div class="about-art"><span>۞</span></div>
+      <div class="about-copy">
+        <span class="section-kicker">درباره پایگاه</span>
+        <h2 style="font-size:30px;color:var(--green);margin:5px 0 15px">دانش، اخلاق و مسئولیت</h2>
+        <p id="aboutIntro">این پایگاه با هدف سامان‌دهی و انتشار مطالب، مقالات و دیدگاه‌های منسوب به آیت‌الله بحبحانی طراحی شده است.</p>
+        <div class="feature-list">
+          <div class="feature"><span class="feature-icon">✦</span><span><b>مقالات و پژوهش</b><small>دسترسی آسان</small></span></div>
+          <div class="feature"><span class="feature-icon">◈</span><span><b>معارف</b><small>موضوع‌بندی</small></span></div>
+          <div class="feature"><span class="feature-icon">⌁</span><span><b>ارتباط</b><small>کانال رسمی</small></span></div>
+          <div class="feature"><span class="feature-icon">❖</span><span><b>راست‌چین</b><small>طراحی فارسی</small></span></div>
+        </div>
+        <div style="margin-top:22px"><a class="btn" href="#/about">بیشتر</a></div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container"><div class="eitaa-band">
+      <div class="eitaa-copy"><div class="eitaa-icon">✈</div><div><h3>کانال رسمی ایتا</h3><p>پیگیری تازه‌ترین مطالب.</p></div></div>
+      <a class="btn" id="eitaaBtn" href="https://eitaa.com/bahbahani" target="_blank" rel="noopener">ورود ↗</a>
+    </div></div></section>
+
+    <section class="section soft" id="contactSection"><div class="container">
+      <div class="section-head"><div><span class="section-kicker">در ارتباط</span><h2>تماس با ما</h2></div></div>
+      <div class="contact-grid">
+        <div class="contact-info"><h3>راه‌های ارتباطی</h3><p>برای پیگیری و ارسال پیام.</p>
+          <div class="contact-row">کانال ایتا<small id="eitaaLabel">eitaa.com/bahbahani</small></div>
+          <div class="contact-row">پاسخ‌گویی<small>از طریق کانال</small></div>
+          <a class="btn gold" id="eitaaBtn2" href="https://eitaa.com/bahbahani" target="_blank" rel="noopener">رفتن ↗</a>
+        </div>
+        <form class="form-card" id="contactForm">
+          <h3>ارسال پیام</h3>
+          <div class="field"><label>نام</label><input id="contactName" required maxlength="80"></div>
+          <div class="field"><label>ایمیل (اختیاری)</label><input id="contactEmail" type="email" maxlength="120" class="ltr"></div>
+          <div class="field"><label>متن</label><textarea id="contactMessage" required maxlength="2000"></textarea></div>
+          <button class="btn full" type="submit">ارسال</button>
+        </form>
+      </div>
+    </div></section>
+  </div>
+  <div id="pageView" class="hidden"></div>
+</main>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div><a class="brand" href="#/"><span class="seal">۞</span><span><strong style="color:#f2e4bd" id="footerTitle">پایگاه رسمی آیت‌الله بحبحانی</strong><small style="color:#b8c8bc">معارف، اندیشه</small></span></a><p>فضایی برای انتشار مقالات و ارتباط با مخاطبان.</p></div>
+    <div><h4>دسترسی</h4><div class="footer-links"><a href="#/">خانه</a><a href="#/articles">مقالات</a><a href="#/about">درباره</a><a href="#/contact">تماس</a><a href="#/stats">آمار</a></div></div>
+    <div><h4>حساب</h4><div class="footer-links"><a href="#/register">ثبت‌نام</a><a href="#/login">ورود</a><a href="https://eitaa.com/bahbahani" target="_blank">ایتا ↗</a><a href="#/admin">مدیر</a></div></div>
+  </div>
+  <div class="copyright"><span>© <span id="year"></span> تمامی حقوق محفوظ است.</span><span>Cloudflare Worker · v2</span></div>
+</div></footer>
+
+<button class="back-to-top" id="backToTop">↑</button>
+<div id="toast" class="toast hidden"></div>
+<div id="modalRoot"></div>
+<div id="loading" class="loading-overlay"><div style="text-align:center"><div class="spinner"></div><div>بارگذاری...</div></div></div>
+
+<script>
+const API = "/api";
+const SESSION_KEY = "bb_session_cf";
+const THEME_KEY = "bb_theme";
+
+const defaultSettings = {
+  siteTitle: "پایگاه رسمی آیت‌الله بحبحانی",
+  siteSubtitle: "معارف، اندیشه و بصیرت",
+  aboutIntro: "این پایگاه با هدف سامان‌دهی و انتشار مطالب، مقالات و دیدگاه‌های منسوب به آیت‌الله بحبحانی طراحی شده است.",
+  aboutLong: "این بخش برای انتشار زندگی‌نامه و سوابق علمی است.",
+  eitaa: "https://eitaa.com/bahbahani",
+  seoTitle: "پایگاه رسمی آیت‌الله بحبحانی",
+  seoDescription: "پایگاه اطلاع‌رسانی و نشر معارف اسلامی",
+  maintenanceMode: false,
+  postsPerPage: 9
+};
+
+const starterArticles = [
+  {id:"a1",title:"جایگاه اندیشه و تعقل در زندگی دینی",category:"معارف اسلامی",tags:["اندیشه","تعقل"],date:"۱۴۰۵/۰۷/۲۰",author:"دفتر پایگاه",summary:"نگاهی به نقش خردورزی در فهم آموزه‌های دینی.",content:"<p>اندیشه و تعقل از ابزارهای مهم فهم و شناخت انسان هستند. مطالعه دقیق و مراجعه به منابع معتبر، زمینه درک عمیق‌تر مفاهیم را فراهم می‌کند.</p>",status:"published",cover:null,views:0,likes:[],bookmarks:[],versions:[],relatedIds:[],deleted:false,scheduledAt:null},
+  {id:"a2",title:"اخلاق فردی و مسئولیت اجتماعی",category:"اخلاق",tags:["اخلاق"],date:"۱۴۰۵/۰۷/۱۵",author:"دفتر پایگاه",summary:"مروری بر پیوند فضیلت‌های اخلاقی با رفتار مسئولانه.",content:"<p>اخلاق تنها به رفتار فردی محدود نیست؛ کیفیت رابطه انسان با جامعه نیز بخشی از مسئولیت اخلاقی اوست.</p>",status:"published",cover:null,views:0,likes:[],bookmarks:[],versions:[],relatedIds:[],deleted:false,scheduledAt:null},
+  {id:"a3",title:"اهمیت مطالعه و منابع معتبر",category:"پژوهش",tags:["مطالعه"],date:"۱۴۰۵/۰۷/۱۰",author:"دفتر پایگاه",summary:"چند نکته برای مطالعه دقیق و ارزیابی منابع.",content:"<p>مطالعه سودمند با انتخاب منبع معتبر آغاز می‌شود.</p>",status:"published",cover:null,views:0,likes:[],bookmarks:[],versions:[],relatedIds:[],deleted:false,scheduledAt:null}
+];
+
+const $ = id => document.getElementById(id);
+const $$ = sel => Array.from(document.querySelectorAll(sel));
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid = p => (p||"x") + Date.now() + Math.random().toString(36).slice(2,6);
+
+function readStore(k, fb){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : fb; } catch(e){ return fb; } }
+function writeStore(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch(e){ return false; } }
+function notify(msg, type){
+  const t = $("toast");
+  t.textContent = msg;
+  t.className = "toast" + (type === "err" ? " err" : type === "success" ? " success" : "");
+  clearTimeout(t._h);
+  t._h = setTimeout(() => t.classList.add("hidden"), 3200);
+}
+function modal(html, opts){
+  opts = opts || {};
+  $("modalRoot").innerHTML = '<div class="modal-back"><div class="modal-box ' + (opts.lg ? "lg" : "") + '"><button class="modal-close">✕</button>' + html + '</div></div>';
+  const close = () => $("modalRoot").innerHTML = "";
+  document.querySelector(".modal-close").onclick = close;
+  document.querySelector(".modal-back").addEventListener("click", e => { if (e.target.classList.contains("modal-back")) close(); });
+}
+function confirmModal(title, text, onOk, okLabel, isDanger){
+  modal('<h3>'+esc(title)+'</h3><p style="font-size:13px;color:var(--muted)">'+esc(text)+'</p><div class="modal-actions"><button class="btn ghost" id="mCancel">انصراف</button><button class="btn '+(isDanger?'danger':'')+'" id="mOk">'+(okLabel||"تأیید")+'</button></div>');
+  $("mCancel").onclick = () => $("modalRoot").innerHTML = "";
+  $("mOk").onclick = () => { $("modalRoot").innerHTML = ""; onOk && onOk(); };
+}
+async function sha256(str){
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+function validateNationalId(code){
+  if (!/^\d{10}$/.test(code)) return false;
+  if (/^(\d)\1{9}$/.test(code)) return false;
+  const check = +code[9];
+  let sum = 0;
+  for (let i = 0; i < 9; i++) sum += +code[i] * (10 - i);
+  const r = sum % 11;
+  return r < 2 ? check === r : check === 11 - r;
+}
+function readingTime(html){ return Math.max(1, Math.round(String(html||"").replace(/<[^>]+>/g," ").trim().split(/\s+/).filter(Boolean).length / 200)); }
+function sanitizeHTML(html){
+  const allowed = ["P","BR","STRONG","B","EM","I","U","H2","H3","H4","UL","OL","LI","BLOCKQUOTE","A","IMG","CODE","PRE","SPAN","DIV","HR"];
+  const allowedAttr = { A:["href","target","rel"], IMG:["src","alt","width","height"] };
+  const doc = new DOMParser().parseFromString("<div>"+html+"</div>", "text/html");
+  const walk = node => {
+    Array.from(node.children).forEach(el => {
+      if (!allowed.includes(el.tagName)) { el.replaceWith(...Array.from(el.childNodes)); return walk(node); }
+      Array.from(el.attributes).forEach(a => {
+        if (!(allowedAttr[el.tagName]||[]).includes(a.name)) el.removeAttribute(a.name);
+      });
+      if (el.tagName === "A") { el.setAttribute("rel","noopener"); if (!el.getAttribute("target")) el.setAttribute("target","_blank"); }
+      walk(el);
+    });
+  };
+  walk(doc.body.firstChild);
+  return doc.body.firstChild.innerHTML;
+}
+function fuzzyMatch(q, t){
+  if (!q) return true;
+  q = q.toLowerCase(); t = (t||"").toLowerCase();
+  if (t.includes(q)) return true;
+  let qi = 0;
+  for (let i = 0; i < t.length && qi < q.length; i++) if (t[i] === q[qi]) qi++;
+  return qi === q.length;
+}
+
+/* ============ API ============ */
+async function apiGetState(){
+  const res = await fetch(API + "/state", { cache: "no-store" });
+  if (!res.ok) throw new Error("GET " + res.status);
+  return res.json();
+}
+async function apiSaveState(data, message){
+  const res = await fetch(API + "/state", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ data, message })
+  });
+  if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.error || "PUT " + res.status); }
+  return res.json();
+}
+async function apiUploadImage(base64, dir){
+  const res = await fetch(API + "/upload", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content: base64, dir })
+  });
+  if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.error || "UPLOAD " + res.status); }
+  return res.json();
+}
+async function apiAdminLogin(password){
+  const res = await fetch(API + "/admin-login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password })
+  });
+  if (!res.ok) return { ok: false };
+  return res.json();
+}
+
+/* ============ STATE ============ */
+let STATE = null;
+let SYNC = { sha: null, status: "idle", lastError: null, lastSync: null };
+let SESSION = readStore(SESSION_KEY, null);
+let ADMIN_LOGGED = false;
+let ADMIN_ROLE = null;
+
+function normalizeState(s){
+  s = s || {};
+  return {
+    version: 3,
+    articles: Array.isArray(s.articles) ? s.articles.map(normalizeArticle) : starterArticles.map(normalizeArticle),
+    comments: Array.isArray(s.comments) ? s.comments.map(normalizeComment) : [],
+    messages: Array.isArray(s.messages) ? s.messages : [],
+    users: Array.isArray(s.users) ? s.users.map(normalizeUser) : [],
+    categories: Array.isArray(s.categories) && s.categories.length ? s.categories : [
+      {id:"c1",name:"معارف اسلامی",icon:"✦"},{id:"c2",name:"اخلاق",icon:"◈"},{id:"c3",name:"پژوهش",icon:"❖"}
+    ],
+    logs: Array.isArray(s.logs) ? s.logs.slice(-500) : [],
+    media: Array.isArray(s.media) ? s.media.slice(0, 200) : [],
+    settings: Object.assign({}, defaultSettings, s.settings || {})
+  };
+}
+function normalizeArticle(a){
+  return Object.assign({id:uid("a"),title:"",category:"معارف اسلامی",tags:[],date:"",author:"دفتر پایگاه",summary:"",content:"",status:"draft",cover:null,views:0,likes:[],bookmarks:[],versions:[],relatedIds:[],deleted:false,scheduledAt:null,createdAt:new Date().toISOString()}, a, {
+    tags:Array.isArray(a.tags)?a.tags:[], likes:Array.isArray(a.likes)?a.likes:[], bookmarks:Array.isArray(a.bookmarks)?a.bookmarks:[], versions:Array.isArray(a.versions)?a.versions:[], relatedIds:Array.isArray(a.relatedIds)?a.relatedIds:[]
+  });
+}
+function normalizeComment(c){
+  return Object.assign({id:uid("c"),articleId:"",userId:null,name:"",nationalId:"",text:"",status:"pending",date:"",parentId:null,likes:[],reports:[]}, c, {likes:Array.isArray(c.likes)?c.likes:[], reports:Array.isArray(c.reports)?c.reports:[]});
+}
+function normalizeUser(u){
+  return Object.assign({id:uid("u"),name:"",nationalId:"",phone:"",passwordHash:"",avatar:null,role:"user",bio:"",email:"",bookmarks:[],followedCategories:[],notifications:[],createdAt:new Date().toISOString()}, u, {
+    bookmarks:Array.isArray(u.bookmarks)?u.bookmarks:[], notifications:Array.isArray(u.notifications)?u.notifications:[], followedCategories:Array.isArray(u.followedCategories)?u.followedCategories:[]
+  });
+}
+function logAction(action, details){
+  STATE.logs.push({id:uid("l"), at:new Date().toISOString(), actor:SESSION?.userId || (ADMIN_LOGGED?"admin":"guest"), role:ADMIN_ROLE||"guest", action, details:details||""});
+  if (STATE.logs.length > 500) STATE.logs = STATE.logs.slice(-500);
+}
+async function loadState(){
+  const cached = readStore("bb_state_cf", null);
+  if (cached) { STATE = normalizeState(cached); applySettings(); }
+  setSync("loading", "اتصال...");
+  try {
+    const r = await apiGetState();
+    if (r.data) {
+      STATE = normalizeState(r.data);
+      SYNC.sha = r.sha;
+      writeStore("bb_state_cf", STATE);
+      setSync("ok", "متصل");
+    } else {
+      if (!STATE) STATE = normalizeState(null);
+      await saveState("seed", true);
+      setSync("ok", "ایجاد شد");
+    }
+    SYNC.lastSync = Date.now();
+  } catch (e) {
+    SYNC.lastError = e.message;
+    if (!STATE) STATE = normalizeState(null);
+    setSync("err", "آفلاین");
+  }
+  applySettings();
+}
+async function saveState(message, silent){
+  writeStore("bb_state_cf", STATE);
+  try {
+    const r = await apiSaveState(STATE, message || "update");
+    SYNC.sha = r.sha; SYNC.status = "ok"; SYNC.lastError = null; SYNC.lastSync = Date.now();
+    setSync("ok", "همگام");
+    return true;
+  } catch (e) {
+    SYNC.status = "err"; SYNC.lastError = e.message;
+    setSync("err", "خطا");
+    if (!silent) notify("ذخیره ناموفق: " + e.message, "err");
+    return false;
+  }
+}
+function setSync(state, text){
+  const dot = $("syncDot"), txt = $("syncText");
+  if (!dot) return;
+  dot.className = "sync-dot" + (state === "ok" ? " ok" : state === "err" ? " err" : "");
+  txt.textContent = text;
+}
+function applySettings(){
+  const s = STATE?.settings; if (!s) return;
+  $("brandTitle").textContent = s.siteTitle;
+  $("brandSub").textContent = s.siteSubtitle;
+  $("footerTitle").textContent = s.siteTitle;
+  $("aboutIntro").textContent = s.aboutIntro;
+  $("eitaaBtn").href = s.eitaa;
+  $("eitaaBtn2").href = s.eitaa;
+  $("eitaaLabel").textContent = s.eitaa.replace(/^https?:\/\//,"").replace(/\/$/,"");
+  document.title = s.seoTitle || s.siteTitle;
+  $("maintBanner").classList.toggle("hidden", !s.maintenanceMode || ADMIN_LOGGED);
+}
+
+/* ============ AUTH ============ */
+async function hashPassword(nid, pass){ return sha256("bbuser:" + nid + ":" + pass); }
+function currentUser(){ return SESSION?.userId ? (STATE?.users || []).find(u => u.id === SESSION.userId) || null : null; }
+function setSession(userId){ SESSION = { userId }; writeStore(SESSION_KEY, SESSION); renderAuthArea(); }
+function clearSession(){ SESSION = null; localStorage.removeItem(SESSION_KEY); renderAuthArea(); }
+
+async function registerUser(data){
+  const { name, nationalId, phone, password, password2, email } = data;
+  if (!name || name.length < 2) throw new Error("نام کامل را وارد کنید.");
+  if (!validateNationalId(nationalId)) throw new Error("کد ملی معتبر نیست.");
+  if (!/^09\d{9}$/.test(phone)) throw new Error("موبایل ۱۱ رقمی با 09.");
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error("ایمیل معتبر نیست.");
+  if (!password || password.length < 6) throw new Error("رمز حداقل ۶ کاراکتر.");
+  if (password !== password2) throw new Error("تکرار رمز مطابقت ندارد.");
+  if (STATE.users.some(u => u.nationalId === nationalId)) throw new Error("این کد ملی قبلاً ثبت شده.");
+  const hash = await hashPassword(nationalId, password);
+  const user = normalizeUser({id:uid("u"), name:name.trim(), nationalId, phone, email:email||"", passwordHash:hash, role:"user",
+    notifications:[{id:uid("n"), at:new Date().toISOString(), text:"به پایگاه خوش آمدید 🌿", read:false}]});
+  STATE.users.push(user);
+  logAction("register", nationalId);
+  await saveState("register");
+  setSession(user.id);
+  return user;
+}
+async function loginUser(nid, pass){
+  if (!validateNationalId(nid)) throw new Error("کد ملی معتبر نیست.");
+  const user = STATE.users.find(u => u.nationalId === nid);
+  if (!user) throw new Error("کاربر یافت نشد.");
+  if ((await hashPassword(nid, pass)) !== user.passwordHash) throw new Error("رمز نادرست.");
+  setSession(user.id);
+  logAction("login", nid);
+  return user;
+}
+
+/* ============ NAV ============ */
+function renderAuthArea(){
+  const el = $("authArea"); if (!el) return;
+  const u = currentUser();
+  if (u) {
+    const initial = (u.name||"?").trim().charAt(0);
+    const av = u.avatar ? '<img src="'+esc(u.avatar)+'">' : esc(initial);
+    const notifCount = u.notifications.filter(n => !n.read).length;
+    el.innerHTML = '<button class="btn small ghost" id="notifBtn">🔔' + (notifCount ? ' ' + notifCount : '') + '</button>' +
+      '<a class="user-chip" href="#/profile"><span class="av">' + av + '</span><span>' + esc(u.name.split(" ")[0]) + '</span></a>' +
+      '<button class="btn small ghost" id="logoutBtn">خروج</button>';
+    $("logoutBtn").onclick = () => { clearSession(); notify("خارج شدید."); route(); };
+    $("notifBtn").onclick = showNotif;
+  } else {
+    el.innerHTML = '<a class="btn small ghost" href="#/login">ورود</a><a class="btn small" href="#/register">ثبت‌نام</a>';
+  }
+}
+function showNotif(){
+  const u = currentUser(); if (!u) return;
+  const items = u.notifications.length ? u.notifications.map(n =>
+    '<div class="notif-item' + (n.read?"":" unread") + '"><p>' + esc(n.text) + '</p><small>' + esc(new Date(n.at).toLocaleString("fa-IR")) + '</small></div>'
+  ).join("") : '<div style="padding:20px;text-align:center;color:var(--muted)">اعلانی ندارید.</div>';
+  modal('<div class="notif-head"><strong>اعلان‌ها</strong><button class="btn small ghost" id="markRead">همه خوانده شد</button></div><div>' + items + '</div>');
+  $("markRead").onclick = async () => {
+    u.notifications.forEach(n => n.read = true);
+    await saveState("read");
+    renderAuthArea();
+    $("modalRoot").innerHTML = "";
+  };
+}
+function addNotification(userId, text){
+  const u = STATE.users.find(x => x.id === userId); if (!u) return;
+  u.notifications.unshift({id:uid("n"), at:new Date().toISOString(), text, read:false});
+  u.notifications = u.notifications.slice(0, 50);
+}
+
+/* ============ HOME ============ */
+function isVisible(a){
+  if (a.deleted) return false;
+  if (a.status !== "published") return false;
+  if (a.scheduledAt && new Date(a.scheduledAt) > new Date()) return false;
+  return true;
+}
+function coverHTML(a, i){
+  if (a.cover) return '<div class="article-cover has-img" style="background-image:url(\''+esc(a.cover)+'\')"></div>';
+  return '<div class="article-cover c' + ((i%6)+1) + '"></div>';
+}
+function cardHTML(a, i){
+  return '<article class="article-card fade">' + coverHTML(a, i) +
+    '<div class="card-body">' +
+      '<div class="article-stats-line"><span>👁 ' + (a.views||0) + '</span><span>❤ ' + (a.likes?.length||0) + '</span><span>⏱ ' + readingTime(a.content) + ' دقیقه</span></div>' +
+      '<span class="tag">' + esc(a.category) + '</span>' +
+      '<h3>' + esc(a.title) + '</h3>' +
+      '<p>' + esc(a.summary) + '</p>' +
+      (a.tags?.length ? '<div class="card-tags">' + a.tags.slice(0,3).map(t => '<span class="tag">#' + esc(t) + '</span>').join("") + '</div>' : '') +
+      '<div class="card-foot"><span>' + esc(a.date) + ' · ' + esc(a.author) + '</span>' +
+      '<a class="read-link" href="#/article/' + encodeURIComponent(a.id) + '">مطالعه ←</a></div>' +
+    '</div></article>';
+}
+function renderHomeArticles(){
+  const pub = STATE.articles.filter(isVisible);
+  $("homeArticles").innerHTML = pub.length ? pub.slice(0,3).map(cardHTML).join("") : '<div class="empty">هنوز مقاله‌ای نیست.</div>';
+}
+
+/* ============ ARTICLES LIST ============ */
+let artState = { q:"", cat:"", sort:"new", page:1 };
+function renderArticlesList(){
+  showPage(
+    '<section class="page-title"><div class="container"><h1>آرشیو مقالات</h1><div class="breadcrumbs"><a href="#/">خانه</a> / مقالات</div></div></section>' +
+    '<section class="section"><div class="container">' +
+      '<div class="toolbar">' +
+        '<input class="search-input" id="artSearch" placeholder="جست‌وجو...">' +
+        '<select class="search-input" id="artCat"><option value="">همه دسته‌ها</option>' + STATE.categories.map(c => '<option>' + esc(c.name) + '</option>').join("") + '</select>' +
+        '<select class="search-input" id="artSort"><option value="new">جدیدترین</option><option value="views">پربازدید</option><option value="likes">محبوب‌ترین</option><option value="alpha">الفبایی</option></select>' +
+      '</div>' +
+      '<div class="article-grid" id="allArticles"></div>' +
+      '<div class="pagination" id="artPagination"></div>' +
+    '</div></section>'
+  );
+  const doRender = () => {
+    let list = STATE.articles.filter(a => isVisible(a) &&
+      (!artState.cat || a.category === artState.cat) &&
+      (!artState.q || fuzzyMatch(artState.q, a.title + " " + a.summary + " " + a.category)));
+    const sorters = { new:(a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0), views:(a,b)=>(b.views||0)-(a.views||0), likes:(a,b)=>(b.likes?.length||0)-(a.likes?.length||0), alpha:(a,b)=>a.title.localeCompare(b.title,"fa") };
+    list.sort(sorters[artState.sort] || sorters.new);
+    const per = STATE.settings.postsPerPage || 9;
+    const totalPages = Math.max(1, Math.ceil(list.length/per));
+    if (artState.page > totalPages) artState.page = totalPages;
+    const sliced = list.slice((artState.page-1)*per, artState.page*per);
+    $("allArticles").innerHTML = sliced.length ? sliced.map(cardHTML).join("") : '<div class="empty">مقاله‌ای نیست.</div>';
+    if (totalPages > 1) {
+      let pag = "";
+      for (let i = 1; i <= totalPages; i++)
+        pag += '<button class="' + (i === artState.page ? "active" : "") + '" data-p="' + i + '">' + i + '</button>';
+      $("artPagination").innerHTML = pag;
+      $$("[data-p]").forEach(b => b.onclick = () => { artState.page = +b.dataset.p; doRender(); window.scrollTo({top:0,behavior:"smooth"}); });
+    } else $("artPagination").innerHTML = "";
+  };
+  let db; $("artSearch").addEventListener("input", e => { clearTimeout(db); db = setTimeout(() => { artState.q = e.target.value.trim(); artState.page = 1; doRender(); }, 250); });
+  $("artCat").addEventListener("change", e => { artState.cat = e.target.value; doRender(); });
+  $("artSort").addEventListener("change", e => { artState.sort = e.target.value; doRender(); });
+  doRender();
+}
+
+/* ============ ARTICLE DETAIL ============ */
+async function renderArticle(id){
+  const a = STATE.articles.find(x => x.id === id && isVisible(x));
+  if (!a) { notify("یافت نشد.", "err"); location.hash = "#/articles"; return; }
+  const vk = "bb_v_" + a.id;
+  if (!sessionStorage.getItem(vk)) { a.views = (a.views||0)+1; sessionStorage.setItem(vk,"1"); saveState("view", true); }
+  const u = currentUser();
+  const liked = u && a.likes.includes(u.id);
+  const bookmarked = u && u.bookmarks.includes(a.id);
+  const doc = new DOMParser().parseFromString("<div>"+a.content+"</div>","text/html");
+  const heads = Array.from(doc.querySelectorAll("h2, h3"));
+  const toc = heads.map((h,i)=>{ const hid = "h-"+i; h.setAttribute("id",hid); return {id:hid, text:h.textContent.trim()}; });
+  a._html = doc.body.firstChild.innerHTML;
+  const approved = STATE.comments.filter(c => c.articleId === id && c.status === "approved");
+  const buildTree = pid => approved.filter(c => c.parentId === pid).map(c => ({...c, replies: buildTree(c.id)}));
+  const tree = buildTree(null);
+  const renderC = (c, isR) => '<div class="comment' + (isR?' reply':'') + '"><strong>' + esc(c.name) + '</strong><p>' + esc(c.text) + '</p>' +
+    '<div class="cm-meta"><span>' + esc(c.date||"") + '</span>' +
+    (u ? '<button data-cl="'+c.id+'">♡ '+c.likes.length+'</button><button data-cr="'+c.id+'">پاسخ</button>' : '') +
+    '</div>' + (c.replies||[]).map(r => renderC(r,true)).join("") + '</div>';
+
+  let related = a.relatedIds?.map(rid => STATE.articles.find(x => x.id===rid && isVisible(x))).filter(Boolean) || [];
+  if (related.length < 3) related = related.concat(STATE.articles.filter(x => x.id !== a.id && isVisible(x) && x.category === a.category).slice(0, 3-related.length));
+
+  showPage(
+    '<section class="page-title"><div class="container"><div class="breadcrumbs"><a href="#/">خانه</a> / <a href="#/articles">مقالات</a> / جزئیات</div></div></section>' +
+    '<section class="section"><div class="container article-layout">' +
+      '<article class="article-detail">' +
+        '<span class="tag">' + esc(a.category) + '</span>' +
+        '<h1>' + esc(a.title) + '</h1>' +
+        '<div class="detail-meta"><span>✦ ' + esc(a.author) + '</span><span>◷ ' + esc(a.date) + '</span><span>⏱ ' + readingTime(a.content) + ' دقیقه</span><span>👁 ' + (a.views||0) + '</span></div>' +
+        (a.cover ? '<div class="detail-cover" style="background-image:url(\''+esc(a.cover)+'\')"></div>' : '<div class="detail-cover">۞</div>') +
+        '<div class="prose">' + sanitizeHTML(a._html) + '</div>' +
+        '<div class="share-row">' +
+          '<button class="like-btn' + (liked?' liked':'') + '" id="likeBtn">' + (liked?'❤':'♡') + ' ' + a.likes.length + '</button>' +
+          '<button class="bookmark-btn' + (bookmarked?' bookmarked':'') + '" id="bmBtn">' + (bookmarked?'🔖 ذخیره':'🔖') + '</button>' +
+          '<button class="btn small" id="shareBtn">اشتراک</button>' +
+          '<button class="btn small ghost" id="copyBtn">کپی پیوند</button>' +
+        '</div>' +
+        '<div class="comments"><h2 style="color:var(--green)">دیدگاه‌ها (' + approved.length + ')</h2>' +
+          (tree.length ? tree.map(c => renderC(c,false)).join("") : '<p class="section-sub">بدون دیدگاه.</p>') +
+          (u ? '<form class="form-card" id="cmForm" style="margin-top:22px"><h3>ثبت دیدگاه</h3><div class="field"><label>متن</label><textarea id="cmText" required maxlength="1500"></textarea></div><button class="btn" type="submit">ارسال</button></form>' : '<div class="empty">برای ثبت دیدگاه <a href="#/login" style="color:var(--green2);font-weight:700">وارد</a> شوید.</div>') +
+        '</div>' +
+      '</article>' +
+      '<aside>' +
+        (toc.length ? '<div class="toc"><h4>فهرست</h4><ul>' + toc.map(h => '<li><a href="#'+h.id+'">'+esc(h.text)+'</a></li>').join("") + '</ul></div>' : '') +
+        (related.length ? '<div class="toc" style="margin-top:16px;position:static"><h4>مرتبط</h4><ul>' + related.map(r => '<li><a href="#/article/'+encodeURIComponent(r.id)+'">'+esc(r.title)+'</a></li>').join("") + '</ul></div>' : '') +
+      '</aside>' +
+    '</div></section>'
+  );
+  $("likeBtn").onclick = async () => { if (!u) return notify("وارد شوید.","err"); const i = a.likes.indexOf(u.id); if (i===-1) a.likes.push(u.id); else a.likes.splice(i,1); await saveState("like"); renderArticle(id); };
+  $("bmBtn").onclick = async () => { if (!u) return notify("وارد شوید.","err"); const i = u.bookmarks.indexOf(a.id); if (i===-1) u.bookmarks.push(a.id); else u.bookmarks.splice(i,1); await saveState("bm"); renderArticle(id); };
+  $("shareBtn").onclick = async () => { if (navigator.share) { try { await navigator.share({title:a.title,url:location.href}); } catch(e){} } else copyText(location.href); };
+  $("copyBtn").onclick = () => copyText(location.href);
+  if (u && $("cmForm")) $("cmForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const t = $("cmText").value.trim(); if (!t) return;
+    STATE.comments.push(normalizeComment({id:uid("c"), articleId:id, userId:u.id, name:u.name, nationalId:u.nationalId, text:t, status:"pending", date:new Date().toLocaleDateString("fa-IR"), parentId:null}));
+    await saveState("comment");
+    notify("ثبت شد؛ پس از تأیید نمایش داده می‌شود.","success");
+    renderArticle(id);
+  });
+  $$("[data-cl]").forEach(b => b.onclick = async () => {
+    if (!u) return notify("وارد شوید.","err");
+    const c = STATE.comments.find(x=>x.id===b.dataset.cl); if(!c) return;
+    const i = c.likes.indexOf(u.id); if (i===-1) c.likes.push(u.id); else c.likes.splice(i,1);
+    await saveState("like c"); renderArticle(id);
+  });
+  $$("[data-cr]").forEach(b => b.onclick = () => {
+    const f = document.createElement("form"); f.className = "reply-form";
+    f.innerHTML = '<div class="field"><label>پاسخ</label><textarea required></textarea></div><div class="admin-actions"><button class="btn small" type="submit">ارسال</button></div>';
+    f.addEventListener("submit", async e => {
+      e.preventDefault();
+      const t = f.querySelector("textarea").value.trim(); if (!t) return;
+      STATE.comments.push(normalizeComment({id:uid("c"), articleId:id, userId:u.id, name:u.name, nationalId:u.nationalId, text:t, status:"pending", date:new Date().toLocaleDateString("fa-IR"), parentId:b.dataset.cr}));
+      await saveState("reply"); notify("ارسال شد.","success"); renderArticle(id);
+    });
+    b.closest(".comment").appendChild(f);
+  });
+}
+async function copyText(t){ try { await navigator.clipboard.writeText(t); notify("کپی شد.","success"); } catch(e){ notify("کپی ناموفق.","err"); } }
+
+/* ============ ABOUT / STATS ============ */
+function renderAbout(){
+  showPage('<section class="page-title"><div class="container"><h1>درباره ایشان</h1><div class="breadcrumbs"><a href="#/">خانه</a> / درباره</div></div></section>' +
+    '<section class="section"><div class="container about-grid"><div class="about-art"><span>۞</span></div>' +
+    '<div class="about-copy"><span class="section-kicker">زندگی‌نامه</span><h2 style="color:var(--green)">آیت‌الله بحبحانی</h2>' +
+    '<p>' + esc(STATE.settings.aboutLong) + '</p><p>' + esc(STATE.settings.aboutIntro) + '</p>' +
+    '<a class="btn" href="' + esc(STATE.settings.eitaa) + '" target="_blank">ایتا ↗</a></div></div></section>');
+}
+function renderPublicStats(){
+  const arts = STATE.articles.filter(isVisible);
+  const tv = arts.reduce((s,a)=>s+(a.views||0),0);
+  const tl = arts.reduce((s,a)=>s+(a.likes?.length||0),0);
+  showPage('<section class="page-title"><div class="container"><h1>آمار پایگاه</h1><div class="breadcrumbs"><a href="#/">خانه</a> / آمار</div></div></section>' +
+    '<section class="section"><div class="container"><div class="stats">' +
+    '<div class="stat"><small>مقالات</small><strong>'+arts.length+'</strong></div>' +
+    '<div class="stat"><small>بازدید</small><strong>'+tv+'</strong></div>' +
+    '<div class="stat"><small>پسند</small><strong>'+tl+'</strong></div>' +
+    '<div class="stat"><small>کاربران</small><strong>'+STATE.users.length+'</strong></div>' +
+    '</div></div></section>');
+}
+
+/* ============ AUTH PAGES ============ */
+function pwField(id, label, ph){
+  return '<div class="field"><label>'+label+'</label><div class="pw-wrap"><input id="'+id+'" type="password" required '+(ph?'placeholder="'+ph+'"':'')+'><button type="button" class="pw-toggle" data-pw="'+id+'">👁</button></div></div>';
+}
+function bindPw(){ $$(".pw-toggle").forEach(b => b.onclick = () => { const el = $(b.dataset.pw); el.type = el.type==="password"?"text":"password"; }); }
+
+function renderLogin(){
+  if (currentUser()) { location.hash = "#/profile"; return; }
+  showPage('<section class="auth-wrap"><div class="container"><div class="auth-card"><h1>ورود</h1><p class="sub">با کد ملی وارد شوید.</p>' +
+    '<form id="lgForm"><div class="field"><label>کد ملی</label><input id="lgNid" class="ltr" required maxlength="10" inputmode="numeric"></div>' +
+    pwField("lgPass","رمز عبور") + '<div class="field-error" id="lgErr"></div><button class="btn full" type="submit">ورود</button></form>' +
+    '<div class="auth-foot"><a href="#/register">ثبت‌نام</a></div></div></div></section>');
+  bindPw();
+  $("lgForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const err = $("lgErr"); err.classList.remove("show");
+    try { await loginUser($("lgNid").value.trim(), $("lgPass").value); notify("خوش آمدید.","success"); location.hash = "#/profile"; }
+    catch(ex){ err.textContent = ex.message; err.classList.add("show"); }
+  });
+}
+function renderRegister(){
+  if (currentUser()) { location.hash = "#/profile"; return; }
+  showPage('<section class="auth-wrap"><div class="container"><div class="auth-card"><h1>ثبت‌نام</h1><p class="sub">کد ملی معتبر الزامی است.</p>' +
+    '<form id="rgForm">' +
+    '<div class="field"><label>نام</label><input id="rgName" required maxlength="80"></div>' +
+    '<div class="field"><label>کد ملی</label><input id="rgNid" class="ltr" required maxlength="10" inputmode="numeric"></div>' +
+    '<div class="field"><label>موبایل</label><input id="rgPhone" class="ltr" required maxlength="11" inputmode="numeric" placeholder="09XXXXXXXXX"></div>' +
+    '<div class="field"><label>ایمیل (اختیاری)</label><input id="rgEmail" type="email" class="ltr"></div>' +
+    pwField("rgPass","رمز عبور") + pwField("rgPass2","تکرار رمز") +
+    '<div class="field-error" id="rgErr"></div><button class="btn full" type="submit">ثبت‌نام</button></form>' +
+    '<div class="auth-foot"><a href="#/login">ورود</a></div></div></div></section>');
+  bindPw();
+  $("rgForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const err = $("rgErr"); err.classList.remove("show");
+    try {
+      await registerUser({name:$("rgName").value.trim(), nationalId:$("rgNid").value.trim(), phone:$("rgPhone").value.trim(), email:$("rgEmail").value.trim(), password:$("rgPass").value, password2:$("rgPass2").value});
+      notify("ثبت‌نام موفق.","success"); location.hash = "#/profile";
+    } catch(ex){ err.textContent = ex.message; err.classList.add("show"); }
+  });
+}
+function renderProfile(){
+  const u = currentUser();
+  if (!u) { location.hash = "#/login"; return; }
+  const myCms = STATE.comments.filter(c => c.userId === u.id);
+  const myBm = u.bookmarks.map(bid => STATE.articles.find(a => a.id===bid && isVisible(a))).filter(Boolean);
+  const initial = (u.name||"?").trim().charAt(0);
+  const av = u.avatar ? '<img src="'+esc(u.avatar)+'">' : esc(initial);
+  showPage('<section class="page-title"><div class="container"><h1>پروفایل</h1><div class="breadcrumbs"><a href="#/">خانه</a> / پروفایل</div></div></section>' +
+    '<section class="section"><div class="container" style="max-width:900px">' +
+    '<div class="form-card" style="margin-bottom:22px"><div class="avatar-lg" id="avBox">' + av + '</div>' +
+    '<div style="text-align:center;margin-top:12px"><strong style="color:var(--green)">'+esc(u.name)+'</strong>' +
+    '<div style="font-size:12px;color:var(--muted)">'+esc(u.nationalId)+' · '+esc(u.phone)+'</div></div>' +
+    '<div class="admin-actions" style="justify-content:center;margin-top:16px"><button class="btn small ghost" id="editBtn">ویرایش</button><button class="btn small ghost" id="pwBtn">تغییر رمز</button></div></div>' +
+    '<div class="tabs-line"><button class="active" data-tab="c">دیدگاه‌ها ('+myCms.length+')</button><button data-tab="b">ذخیره ('+myBm.length+')</button></div>' +
+    '<div id="pc"></div></div></section>');
+  const tab = t => {
+    if (t === "c") $("pc").innerHTML = myCms.length ? myCms.map(c => {
+      const art = STATE.articles.find(a => a.id === c.articleId);
+      const b = c.status==="approved"?'<span class="badge green">تأیید</span>':c.status==="rejected"?'<span class="badge red">رد</span>':'<span class="badge amber">در انتظار</span>';
+      return '<div class="admin-item"><div><strong>'+(art?esc(art.title):"—")+'</strong><small>'+esc(c.text)+'</small></div><div>'+b+'</div></div>';
+    }).join("") : '<div class="empty">خالی.</div>';
+    else $("pc").innerHTML = myBm.length ? '<div class="article-grid">'+myBm.map(cardHTML).join("")+'</div>' : '<div class="empty">خالی.</div>';
+  };
+  $$(".tabs-line [data-tab]").forEach(b => b.onclick = () => { $$(".tabs-line [data-tab]").forEach(x=>x.classList.remove("active")); b.classList.add("active"); tab(b.dataset.tab); });
+  tab("c");
+  $("avBox").onclick = () => {
+    const f = document.createElement("input"); f.type = "file"; f.accept = "image/*";
+    f.onchange = async e => {
+      const file = e.target.files[0]; if (!file) return;
+      notify("آپلود...");
+      try {
+        const b64 = await compressImage(file);
+        const r = await apiUploadImage(b64, "avatars");
+        u.avatar = r.url; await saveState("avatar"); renderProfile(); renderAuthArea();
+        notify("آپلود شد.","success");
+      } catch(ex){ notify("خطا: "+ex.message,"err"); }
+    };
+    f.click();
+  };
+  $("editBtn").onclick = () => {
+    modal('<h3>ویرایش</h3><div class="field"><label>نام</label><input id="epN" value="'+esc(u.name)+'"></div>' +
+      '<div class="field"><label>موبایل</label><input id="epP" class="ltr" value="'+esc(u.phone)+'"></div>' +
+      '<div class="modal-actions"><button class="btn" id="epS">ذخیره</button></div>');
+    $("epS").onclick = async () => {
+      u.name = $("epN").value.trim() || u.name;
+      u.phone = $("epP").value.trim() || u.phone;
+      await saveState("profile"); $("modalRoot").innerHTML = ""; renderProfile(); renderAuthArea(); notify("ذخیره شد.","success");
+    };
+  };
+  $("pwBtn").onclick = () => {
+    modal('<h3>تغییر رمز</h3>' + pwField("cpO","رمز فعلی") + pwField("cpN","رمز جدید") +
+      '<div class="field-error" id="cpErr"></div><div class="modal-actions"><button class="btn" id="cpS">ذخیره</button></div>');
+    bindPw();
+    $("cpS").onclick = async () => {
+      const err = $("cpErr"); err.classList.remove("show");
+      try {
+        if ((await hashPassword(u.nationalId, $("cpO").value)) !== u.passwordHash) throw new Error("رمز فعلی نادرست.");
+        if ($("cpN").value.length < 6) throw new Error("حداقل ۶ کاراکتر.");
+        u.passwordHash = await hashPassword(u.nationalId, $("cpN").value);
+        await saveState("pw"); $("modalRoot").innerHTML = ""; notify("تغییر کرد.","success");
+      } catch(ex){ err.textContent = ex.message; err.classList.add("show"); }
+    };
+  };
+}
+async function compressImage(file){
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => {
+      let w = img.width, h = img.height;
+      if (w > 1200) { h = h*1200/w; w = 1200; }
+      const c = document.createElement("canvas"); c.width = w; c.height = h;
+      c.getContext("2d").drawImage(img, 0, 0, w, h);
+      res(c.toDataURL("image/jpeg", 0.85).split(",")[1]);
+    };
+    img.onerror = () => rej(new Error("تصویر نامعتبر"));
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+/* ============ ADMIN ============ */
+let adminTab = "dashboard";
+let adminSearch = "";
+let editingId = null;
+let pendingCover = null;
+
+function renderAdmin(){
+  if (!ADMIN_LOGGED) { renderAdminLogin(); return; }
+  const pendingC = STATE.comments.filter(c => c.status==="pending").length;
+  const pub = STATE.articles.filter(a => a.status==="published" && !a.deleted).length;
+  const tabs = [["dashboard","داشبورد"],["articles","مقالات"],["categories","دسته‌ها"],["comments","دیدگاه‌ها"+(pendingC?" ("+pendingC+")":"")],["messages","پیام‌ها"],["users","کاربران"],["media","رسانه"],["logs","لاگ"],["settings","تنظیمات"],["tools","ابزارها"]];
+  showPage('<section class="admin-wrap"><div class="container admin-dash">' +
+    '<div class="admin-top"><div><span class="section-kicker">پنل مدیریت</span><h1>داشبورد</h1><small>'+esc(SYNC.lastSync?new Date(SYNC.lastSync).toLocaleTimeString("fa-IR"):"—")+'</small></div>' +
+    '<div class="admin-actions"><input class="search-input" id="adminSearch" placeholder="جست‌وجو" value="'+esc(adminSearch)+'" style="min-width:180px">' +
+    '<button class="btn small ghost" id="syncBtn">همگام‌سازی</button><button class="btn small danger" id="logoutBtn">خروج</button></div></div>' +
+    '<div class="notice success">🔒 توکن گیت‌هاب فقط داخل Worker است و در صفحه کلاینت دیده نمی‌شود. رمز ادمین در Worker بررسی می‌شود.</div>' +
+    '<div class="stats"><div class="stat"><small>منتشر</small><strong>'+pub+'</strong></div><div class="stat"><small>در انتظار</small><strong>'+pendingC+'</strong></div><div class="stat"><small>کاربران</small><strong>'+STATE.users.length+'</strong></div><div class="stat"><small>رسانه</small><strong>'+STATE.media.length+'</strong></div></div>' +
+    '<div class="admin-tabs">'+tabs.map(([k,l]) => '<button class="admin-tab '+(adminTab===k?"active":"")+'" data-tab="'+k+'">'+l+'</button>').join("")+'</div>' +
+    '<div id="adminContent"></div></div></section>');
+  $$(".admin-tab").forEach(b => b.onclick = () => { adminTab = b.dataset.tab; renderAdmin(); });
+  $("logoutBtn").onclick = () => { ADMIN_LOGGED = false; ADMIN_ROLE = null; renderAdminLogin(); };
+  $("syncBtn").onclick = async () => { notify("همگام..."); try { const r = await apiGetState(); if (r.data) { STATE = normalizeState(r.data); SYNC.sha = r.sha; applySettings(); renderAdmin(); notify("انجام شد.","success"); } } catch(e){ notify("خطا.","err"); } };
+  $("adminSearch").addEventListener("input", e => { adminSearch = e.target.value.trim(); renderAdminContent(); });
+  renderAdminContent();
+}
+function renderAdminLogin(){
+  showPage('<section class="admin-wrap"><div class="container"><form class="form-card" style="max-width:460px;margin:auto" id="adForm">' +
+    '<span class="eyebrow" style="color:var(--green2)">مدیریت</span><h1 style="color:var(--green);font-size:24px">ورود مدیر</h1>' +
+    '<div class="notice success">🔒 رمز در Worker بررسی می‌شود؛ در صفحه کلاینت ذخیره نمی‌شود.</div>' +
+    pwField("adPass","رمز") + '<div class="field-error" id="adErr"></div>' +
+    '<button class="btn full" type="submit">ورود</button>' +
+    '<p style="text-align:center;margin-top:16px"><a href="#/" style="color:var(--muted);font-size:12px">← بازگشت</a></p></form></div></section>');
+  bindPw();
+  $("adForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const err = $("adErr"); err.classList.remove("show");
+    try {
+      const r = await apiAdminLogin($("adPass").value);
+      if (!r.ok) throw new Error("رمز نادرست.");
+      ADMIN_LOGGED = true; ADMIN_ROLE = "superadmin";
+      notify("خوش آمدید.","success"); renderAdmin();
+    } catch(ex){ err.textContent = ex.message; err.classList.add("show"); }
+  });
+}
+function renderAdminContent(){
+  const el = $("adminContent"); if (!el) return;
+  const h = { dashboard: renderDash, articles: renderAdminArts, categories: renderCats, comments: renderAdminCms, messages: renderAdminMsgs, users: renderAdminUsrs, media: renderAdminMedia, logs: renderAdminLogs, settings: renderAdminSet, tools: renderAdminTools };
+  (h[adminTab] || renderDash)(el);
+}
+function renderDash(el){
+  const months = [];
+  for (let i = 7; i >= 0; i--) {
+    const d = new Date(); d.setMonth(d.getMonth()-i);
+    const key = d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");
+    months.push({label: d.toLocaleDateString("fa-IR",{month:"short"}), count: STATE.articles.filter(a=>(a.createdAt||"").startsWith(key)).length});
+  }
+  const mx = Math.max(1, ...months.map(m=>m.count));
+  el.innerHTML = '<div class="admin-panel"><h3>📊 ۸ ماه اخیر</h3><div class="chart-wrap"><div class="chart">'+months.map(m=>'<div class="bar" style="height:'+Math.round(m.count/mx*100)+'%"><span class="bar-val">'+m.count+'</span><span class="bar-label">'+esc(m.label)+'</span></div>').join("")+'</div></div></div>' +
+    '<div class="admin-panel"><h3>📝 آخرین فعالیت‌ها</h3>' +
+    (STATE.logs.slice(-10).reverse().map(l => '<div class="admin-item"><div><strong>'+esc(l.action)+'</strong><small>'+esc(l.details)+' · '+esc(l.actor)+'</small></div><small>'+esc(new Date(l.at).toLocaleString("fa-IR"))+'</small></div>').join("") || '<p class="section-sub">—</p>') +
+    '</div>';
+}
+function renderAdminArts(el){
+  let list = STATE.articles.filter(a => !a.deleted);
+  if (adminSearch) list = list.filter(a => fuzzyMatch(adminSearch, a.title+" "+a.summary));
+  el.innerHTML = '<div class="admin-panel"><h3>مقالات ('+list.length+')</h3>' +
+    '<div class="admin-actions" style="margin-bottom:14px"><button class="btn small" id="newArt">+ مقاله</button></div>' +
+    (editingId ? '<div id="articleEditor"></div>' : '') +
+    list.map(a => '<div class="admin-item"><div style="flex:1"><strong>'+esc(a.title)+'</strong>' +
+      '<small>'+esc(a.category)+' · '+(a.status==="published"?'<span class="badge green">منتشر</span>':'<span class="badge amber">پیش‌نویس</span>')+' · 👁 '+(a.views||0)+'</small></div>' +
+      '<div class="admin-actions"><button class="btn small ghost" data-ed="'+a.id+'">ویرایش</button><button class="btn small ghost" data-dup="'+a.id+'">کپی</button><button class="btn small danger" data-del="'+a.id+'">حذف</button></div></div>').join("") +
+    '</div>';
+  $("newArt").onclick = () => openEditor("new");
+  $$("[data-ed]").forEach(b => b.onclick = () => openEditor(b.dataset.ed));
+  $$("[data-dup]").forEach(b => b.onclick = async () => {
+    const a = STATE.articles.find(x => x.id === b.dataset.dup);
+    STATE.articles.unshift(normalizeArticle({...JSON.parse(JSON.stringify(a)), id:uid("a"), title:a.title+" (کپی)", status:"draft", views:0, likes:[], versions:[], createdAt:new Date().toISOString()}));
+    await saveState("dup"); renderAdminContent(); notify("کپی ساخته شد.","success");
+  });
+  $$("[data-del]").forEach(b => b.onclick = () => confirmModal("حذف", "این مقاله حذف شود؟", async () => {
+    STATE.articles = STATE.articles.filter(x => x.id !== b.dataset.del);
+    await saveState("del"); renderAdminContent(); renderHomeArticles(); notify("حذف شد.","success");
+  }, "حذف", true));
+  if (editingId) openEditor(editingId, true);
+}
+function openEditor(id, retry){
+  editingId = id;
+  const host = $("articleEditor"); if (!host) return;
+  const a = id === "new"
+    ? normalizeArticle({title:"", category:STATE.categories[0]?.name||"", tags:[], date:new Date().toLocaleDateString("fa-IR"), author:"دفتر پایگاه", summary:"", content:"<p></p>", status:"draft", createdAt:new Date().toISOString()})
+    : STATE.articles.find(x => x.id === id);
+  if (!a) return;
+  if (!retry) pendingCover = a.cover || null;
+  host.innerHTML = '<form id="edForm" style="border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--soft);margin-bottom:16px">' +
+    '<div style="display:flex;justify-content:space-between;margin-bottom:12px"><strong style="color:var(--green)">'+(id==="new"?"مقاله جدید":"ویرایش")+'</strong><button type="button" class="btn small ghost" id="cancelEd">انصراف</button></div>' +
+    '<div class="field"><label>عنوان</label><input id="edT" required maxlength="180" value="'+esc(a.title)+'"></div>' +
+    '<div class="field"><label>خلاصه</label><textarea id="edS" required maxlength="500">'+esc(a.summary)+'</textarea></div>' +
+    '<div class="field"><label>محتوا</label><div class="editor-toolbar" id="tb">' +
+      '<button type="button" data-cmd="bold"><b>B</b></button><button type="button" data-cmd="italic"><i>I</i></button><button type="button" data-cmd="underline"><u>U</u></button>' +
+      '<button type="button" data-cmd="insertUnorderedList">•</button><button type="button" data-cmd="insertOrderedList">1.</button>' +
+      '<button type="button" data-cmd="formatBlock" data-arg="h2">H2</button><button type="button" data-cmd="formatBlock" data-arg="h3">H3</button>' +
+      '<button type="button" data-cmd="formatBlock" data-arg="blockquote">❝</button><button type="button" id="imgBtn">🖼</button></div>' +
+      '<div class="editor-area" id="edC" contenteditable="true">'+(a.content||"<p></p>")+'</div>' +
+      '<input type="file" id="edImg" accept="image/*" class="hidden"></div>' +
+    '<div class="field-row"><div class="field"><label>دسته</label><select id="edCat">'+STATE.categories.map(c=>'<option '+(a.category===c.name?"selected":"")+'>'+esc(c.name)+'</option>').join("")+'</select></div>' +
+    '<div class="field"><label>نویسنده</label><input id="edA" value="'+esc(a.author)+'"></div></div>' +
+    '<div class="field"><label>تگ‌ها (با کاما)</label><input id="edTag" value="'+esc((a.tags||[]).join(", "))+'"></div>' +
+    '<div class="field-row"><div class="field"><label>تاریخ</label><input id="edD" value="'+esc(a.date)+'"></div>' +
+    '<div class="field"><label>وضعیت</label><select id="edSt"><option value="draft" '+(a.status==="draft"?"selected":"")+'>پیش‌نویس</option><option value="published" '+(a.status==="published"?"selected":"")+'>انتشار</option></select></div></div>' +
+    '<div class="field"><label>زمان‌بندی</label><input type="datetime-local" id="edSch" value="'+(a.scheduledAt?a.scheduledAt.slice(0,16):"")+'"></div>' +
+    '<div class="field"><label>کاور</label><div class="cover-preview '+(pendingCover?"has":"")+'" id="coverPrev" style="'+(pendingCover?"background-image:url('"+esc(pendingCover)+"')":"")+'">'+(pendingCover?"":"کلیک" )+'</div>' +
+    '<input type="file" id="coverFile" accept="image/*" class="hidden"></div>' +
+    '<div class="admin-actions"><button class="btn" type="submit">💾 ذخیره</button></div></form>';
+  const ed = $("edC");
+  $$("#tb button[data-cmd]").forEach(b => b.onclick = () => { ed.focus(); if (b.dataset.cmd==="formatBlock") document.execCommand("formatBlock", false, b.dataset.arg); else document.execCommand(b.dataset.cmd, false, null); });
+  $("imgBtn").onclick = () => $("edImg").click();
+  $("edImg").onchange = async e => {
+    const f = e.target.files[0]; if (!f) return;
+    notify("آپلود...");
+    try { const b64 = await compressImage(f); const r = await apiUploadImage(b64, "images"); ed.focus(); document.execCommand("insertHTML", false, '<img src="'+r.url+'" alt="">'); notify("درج شد.","success"); } catch(ex){ notify("خطا.","err"); }
+  };
+  $("coverPrev").onclick = () => $("coverFile").click();
+  $("coverFile").onchange = async e => {
+    const f = e.target.files[0]; if (!f) return;
+    notify("آپلود کاور...");
+    try { const b64 = await compressImage(f); const r = await apiUploadImage(b64, "covers"); pendingCover = r.url; openEditor(id==="new"?"new":id, true); notify("آپلود شد.","success"); } catch(ex){ notify("خطا.","err"); }
+  };
+  $("cancelEd").onclick = () => { editingId = null; host.innerHTML = ""; };
+  $("edForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const obj = normalizeArticle({...a, title:$("edT").value.trim(), summary:$("edS").value.trim(), content:sanitizeHTML(ed.innerHTML), category:$("edCat").value, author:$("edA").value.trim(), tags:$("edTag").value.split(",").map(t=>t.trim()).filter(Boolean), date:$("edD").value.trim(), status:$("edSt").value, scheduledAt:$("edSch").value||null, cover:pendingCover});
+    if (id === "new") STATE.articles.unshift(obj); else STATE.articles = STATE.articles.map(x => x.id === id ? obj : x);
+    await saveState("save"); editingId = null; pendingCover = null;
+    renderAdminContent(); renderHomeArticles(); notify("ذخیره شد.","success");
+  });
+}
+function renderCats(el){
+  el.innerHTML = '<div class="admin-panel"><h3>دسته‌ها</h3><div class="admin-actions" style="margin-bottom:14px"><input id="nCn" class="search-input" placeholder="نام" style="max-width:250px"><input id="nCi" class="search-input" placeholder="آیکون" style="width:80px" maxlength="2"><button class="btn small" id="addCat">+</button></div>' +
+    STATE.categories.map(c => '<div class="admin-item"><div><strong>'+esc(c.icon||"◈")+' '+esc(c.name)+'</strong><small>'+STATE.articles.filter(a=>a.category===c.name).length+' مقاله</small></div><div class="admin-actions"><button class="btn small danger" data-dc="'+c.id+'">حذف</button></div></div>').join("") + '</div>';
+  $("addCat").onclick = async () => { const n = $("nCn").value.trim(); if (!n) return; STATE.categories.push({id:uid("c"),name:n,icon:$("nCi").value.trim()||"◈"}); await saveState("cat"); renderAdminContent(); };
+  $$("[data-dc]").forEach(b => b.onclick = () => confirmModal("حذف", "مطمئنید؟", async () => { STATE.categories = STATE.categories.filter(x => x.id !== b.dataset.dc); await saveState("delcat"); renderAdminContent(); }, "حذف", true));
+}
+function renderAdminCms(el){
+  let list = STATE.comments.slice();
+  if (adminSearch) list = list.filter(c => fuzzyMatch(adminSearch, c.text+" "+c.name));
+  list.sort((a,b) => new Date(b.date||0) - new Date(a.date||0));
+  el.innerHTML = '<div class="admin-panel"><h3>دیدگاه‌ها ('+list.length+')</h3>' +
+    list.map(c => { const art = STATE.articles.find(a => a.id === c.articleId);
+      const badge = c.status==="approved"?'<span class="badge green">تأیید</span>':c.status==="rejected"?'<span class="badge red">رد</span>':'<span class="badge amber">در انتظار</span>';
+      return '<div class="admin-item"><div style="flex:1"><strong>'+esc(c.name)+' <small>('+esc(c.nationalId||"—")+')</small></strong><small>روی: '+(art?esc(art.title):"—")+'</small><small>'+esc(c.text)+'</small><small>'+badge+'</small></div><div class="admin-actions"><button class="btn small" data-ok="'+c.id+'">تأیید</button><button class="btn small ghost" data-no="'+c.id+'">رد</button><button class="btn small danger" data-x="'+c.id+'">حذف</button></div></div>';
+    }).join("") + '</div>';
+  $$("[data-ok]").forEach(b => b.onclick = async () => { const c = STATE.comments.find(x=>x.id===b.dataset.ok); if (c){ c.status="approved"; if (c.userId) addNotification(c.userId, "دیدگاه شما تأیید شد."); } await saveState("ok"); renderAdminContent(); });
+  $$("[data-no]").forEach(b => b.onclick = async () => { const c = STATE.comments.find(x=>x.id===b.dataset.no); if (c) c.status="rejected"; await saveState("no"); renderAdminContent(); });
+  $$("[data-x]").forEach(b => b.onclick = () => confirmModal("حذف","مطمئنید؟",async()=>{STATE.comments=STATE.comments.filter(c=>c.id!==b.dataset.x);await saveState("x");renderAdminContent();},"حذف",true));
+}
+function renderAdminMsgs(el){
+  el.innerHTML = '<div class="admin-panel"><h3>پیام‌ها ('+STATE.messages.length+')</h3>' +
+    STATE.messages.slice().reverse().map(m => '<div class="admin-item"><div style="flex:1"><strong>'+esc(m.name)+' — '+esc(m.email||"—")+'</strong><small>'+esc(m.message)+'</small><small>'+esc(new Date(m.date).toLocaleString("fa-IR"))+'</small></div><button class="btn small danger" data-dm="'+m.id+'">حذف</button></div>').join("") + '</div>';
+  $$("[data-dm]").forEach(b => b.onclick = () => confirmModal("حذف","؟",async()=>{STATE.messages=STATE.messages.filter(x=>x.id!==b.dataset.dm);await saveState("dm");renderAdminContent();},"حذف",true));
+}
+function renderAdminUsrs(el){
+  let list = STATE.users.slice();
+  if (adminSearch) list = list.filter(u => fuzzyMatch(adminSearch, u.name+" "+u.nationalId));
+  el.innerHTML = '<div class="admin-panel"><h3>کاربران ('+list.length+')</h3>' +
+    list.map(u => '<div class="admin-item"><div style="flex:1"><strong>'+esc(u.name)+' <span class="badge purple">'+esc(u.role)+'</span></strong><small>'+esc(u.nationalId)+' · '+esc(u.phone)+'</small></div><div class="admin-actions"><button class="btn small ghost" data-role="'+u.id+'">نقش</button><button class="btn small danger" data-du="'+u.id+'">حذف</button></div></div>').join("") + '</div>';
+  $$("[data-role]").forEach(b => b.onclick = () => {
+    const u = STATE.users.find(x=>x.id===b.dataset.role);
+    modal('<h3>نقش</h3><div class="field"><select id="rlSel"><option value="user" '+(u.role==="user"?"selected":"")+'>کاربر</option><option value="author" '+(u.role==="author"?"selected":"")+'>نویسنده</option><option value="editor" '+(u.role==="editor"?"selected":"")+'>ویرایشگر</option><option value="superadmin" '+(u.role==="superadmin"?"selected":"")+'>مدیر ارشد</option></select></div><div class="modal-actions"><button class="btn" id="rlS">ذخیره</button></div>');
+    $("rlS").onclick = async () => { u.role = $("rlSel").value; await saveState("role"); $("modalRoot").innerHTML=""; renderAdminContent(); };
+  });
+  $$("[data-du]").forEach(b => b.onclick = () => confirmModal("حذف","؟",async()=>{STATE.users=STATE.users.filter(u=>u.id!==b.dataset.du);STATE.comments=STATE.comments.filter(c=>c.userId!==b.dataset.du);await saveState("du");renderAdminContent();},"حذف",true));
+}
+async function renderAdminMedia(el){
+  el.innerHTML = '<div class="admin-panel"><h3>رسانه</h3><div class="admin-actions" style="margin-bottom:14px"><button class="btn small" id="upM">+ آپلود</button><input type="file" id="mFiles" accept="image/*" multiple class="hidden"></div>' +
+    '<div class="media-grid">' + (STATE.media.length ? STATE.media.map(m => '<div class="media-item"><img src="'+esc(m.url)+'" loading="lazy"></div>').join("") : '<div class="empty" style="grid-column:1/-1">خالی</div>') + '</div></div>';
+  $("upM").onclick = () => $("mFiles").click();
+  $("mFiles").onchange = async e => {
+    for (const f of e.target.files) {
+      notify("آپلود "+f.name);
+      try { const b64 = await compressImage(f); const r = await apiUploadImage(b64, "images"); STATE.media.unshift({url:r.url, path:r.path, name:f.name, date:new Date().toISOString(), by:"admin"}); } catch(ex){ notify("خطا.","err"); }
+    }
+    STATE.media = STATE.media.slice(0,200);
+    await saveState("media"); renderAdminContent(); notify("انجام شد.","success");
+  };
+}
+function renderAdminLogs(el){
+  let l = STATE.logs.slice().reverse();
+  if (adminSearch) l = l.filter(x => fuzzyMatch(adminSearch, x.action+" "+x.details));
+  el.innerHTML = '<div class="admin-panel"><h3>لاگ ('+l.length+')</h3>' + l.slice(0,100).map(x => '<div class="admin-item"><div><strong>'+esc(x.action)+'</strong><small>'+esc(x.details)+' · '+esc(x.actor)+'</small></div><small>'+esc(new Date(x.at).toLocaleString("fa-IR"))+'</small></div>').join("") + '</div>';
+}
+function renderAdminSet(el){
+  const s = STATE.settings;
+  el.innerHTML = '<div class="admin-panel"><h3>تنظیمات</h3>' +
+    '<div class="field"><label>عنوان</label><input id="stT" value="'+esc(s.siteTitle)+'"></div>' +
+    '<div class="field"><label>زیرعنوان</label><input id="stS" value="'+esc(s.siteSubtitle)+'"></div>' +
+    '<div class="field"><label>معرفی کوتاه</label><textarea id="stA">'+esc(s.aboutIntro)+'</textarea></div>' +
+    '<div class="field"><label>معرفی کامل</label><textarea id="stAL">'+esc(s.aboutLong)+'</textarea></div>' +
+    '<div class="field"><label>لینک ایتا</label><input id="stE" class="ltr" value="'+esc(s.eitaa)+'"></div>' +
+    '<div class="field"><label>تعداد مقاله در صفحه</label><input id="stP" type="number" min="3" max="50" value="'+(s.postsPerPage||9)+'"></div>' +
+    '<button class="btn" id="saveS">💾 ذخیره</button></div>' +
+    '<div class="admin-panel"><h3>تعمیرات</h3><button class="btn '+(s.maintenanceMode?"success":"danger")+'" id="maintBtn">'+(s.maintenanceMode?"خروج از تعمیرات":"فعال‌سازی")+'</button></div>' +
+    '<div class="admin-panel"><h3>تغییر رمز ادمین</h3>' +
+      '<div class="notice">توجه: رمز ادمین در Worker ثابت است. برای تغییر، مقدار ADMIN_PASS را در کد Worker ویرایش و مجدداً deploy کنید.</div>' +
+    '</div>';
+  $("saveS").onclick = async () => {
+    STATE.settings = {...STATE.settings, siteTitle:$("stT").value.trim()||defaultSettings.siteTitle, siteSubtitle:$("stS").value.trim(), aboutIntro:$("stA").value.trim(), aboutLong:$("stAL").value.trim(), eitaa:$("stE").value.trim()||defaultSettings.eitaa, postsPerPage:Math.max(3,Math.min(50,+$("stP").value||9))};
+    await saveState("set"); applySettings(); notify("ذخیره شد.","success");
+  };
+  $("maintBtn").onclick = async () => { STATE.settings.maintenanceMode = !STATE.settings.maintenanceMode; await saveState("maint"); applySettings(); renderAdminContent(); };
+}
+function renderAdminTools(el){
+  el.innerHTML = '<div class="admin-panel"><h3>پشتیبان</h3><div class="admin-actions">' +
+    '<button class="btn small" id="exp">دانلود JSON</button><button class="btn small ghost" id="imp">بازیابی</button><input type="file" id="impFile" accept="application/json" class="hidden">' +
+    '<button class="btn small danger" id="rst">بازنشانی کامل</button></div>' +
+    '<div class="notice success">وضعیت: '+(SYNC.status==="ok"?"✅ متصل":SYNC.status==="err"?"❌ "+esc(SYNC.lastError||""):"—")+'</div></div>';
+  $("exp").onclick = () => downloadBlob(JSON.stringify(STATE,null,2), "backup.json", "application/json");
+  $("imp").onclick = () => $("impFile").click();
+  $("impFile").onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = async () => { try { STATE = normalizeState(JSON.parse(r.result)); await saveState("import"); applySettings(); renderAdminContent(); renderHomeArticles(); notify("بازیابی شد.","success"); } catch(ex){ notify("نامعتبر.","err"); } };
+    r.readAsText(f);
+  };
+  $("rst").onclick = () => confirmModal("بازنشانی", "همه داده‌ها پاک شوند؟", async () => {
+    STATE.articles = starterArticles.map(normalizeArticle); STATE.comments=[]; STATE.messages=[]; STATE.users=[]; STATE.media=[]; STATE.logs=[];
+    await saveState("reset"); renderAdminContent(); renderHomeArticles();
+  }, "بازنشانی", true);
+}
+function downloadBlob(c, n, t){ const b = new Blob([c],{type:t}); const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = n; a.click(); URL.revokeObjectURL(a.href); }
+
+/* ============ ROUTER ============ */
+function route(){
+  const raw = location.hash.replace(/^#\/?/, "");
+  const parts = raw.split("/").filter(Boolean);
+  const page = parts[0] || "home";
+  $("homeView").classList.add("hidden");
+  $("pageView").classList.add("hidden");
+  if (STATE?.settings?.maintenanceMode && !ADMIN_LOGGED && page !== "admin" && page !== "login" && page !== "register") {
+    $("maintBanner").classList.remove("hidden");
+    showPage('<section class="section"><div class="container"><div class="empty" style="padding:80px 20px"><h1 style="color:var(--green)">🛠 در حال به‌روزرسانی</h1><p>بعداً مراجعه کنید.</p><a class="btn" href="#/admin" style="margin-top:16px">ورود مدیر</a></div></div></section>');
+    return;
+  }
+  $("maintBanner").classList.toggle("hidden", !STATE?.settings?.maintenanceMode);
+  if (page === "home") return showHome();
+  if (page === "articles") return renderArticlesList();
+  if (page === "article") return renderArticle(decodeURIComponent(parts[1] || ""));
+  if (page === "about") return renderAbout();
+  if (page === "contact") { showHome(); setTimeout(() => $("contactSection")?.scrollIntoView({behavior:"smooth"}), 60); return; }
+  if (page === "stats") return renderPublicStats();
+  if (page === "login") return renderLogin();
+  if (page === "register") return renderRegister();
+  if (page === "profile") return renderProfile();
+  if (page === "admin") return renderAdmin();
+  return showHome();
+}
+function showHome(){ $("homeView").classList.remove("hidden"); $("pageView").classList.add("hidden"); $("pageView").innerHTML = ""; renderHomeArticles(); }
+function showPage(h){ $("homeView").classList.add("hidden"); $("pageView").innerHTML = h; $("pageView").classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"}); }
+
+/* ============ THEME / UI ============ */
+function applyTheme(t){ document.documentElement.setAttribute("data-theme", t); writeStore(THEME_KEY, t); $("themeToggle").textContent = t==="dark"?"☀":"🌙"; }
+$("themeToggle").onclick = () => { const c = document.documentElement.getAttribute("data-theme")||"light"; applyTheme(c==="dark"?"light":"dark"); };
+window.addEventListener("scroll", () => {
+  const h = document.documentElement;
+  $("readingProgress").style.width = Math.min(100, Math.max(0, (h.scrollTop/(h.scrollHeight-h.clientHeight))*100)) + "%";
+  $("backToTop").classList.toggle("show", h.scrollTop > 400);
+});
+$("backToTop").onclick = () => window.scrollTo({top:0,behavior:"smooth"});
+$("menuToggle").addEventListener("click", () => $("navLinks").classList.toggle("open"));
+$("navLinks").querySelectorAll("a").forEach(a => a.addEventListener("click", () => $("navLinks").classList.remove("open")));
+window.addEventListener("hashchange", route);
+
+$("contactForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  STATE.messages.push({id:uid("m"), name:$("contactName").value.trim(), email:$("contactEmail").value.trim(), message:$("contactMessage").value.trim(), date:new Date().toISOString()});
+  e.target.reset();
+  notify("پیام ثبت شد.","success");
+  await saveState("contact");
+});
+
+/* ============ INIT ============ */
+$("year").textContent = new Date().getFullYear();
+(async () => {
+  try {
+    applyTheme(readStore(THEME_KEY, "light"));
+    await loadState();
+    if (!STATE) STATE = normalizeState(null);
+    renderAuthArea(); applySettings(); renderHomeArticles();
+    $("loading").classList.add("hidden");
+    if (!location.hash) location.hash = "#/";
+    route();
+  } catch (e) {
+    console.error(e);
+    $("loading").innerHTML = '<div style="color:#e07a63;text-align:center;padding:20px">خطا: '+esc(e.message)+'<br><button class="btn" onclick="location.reload()" style="margin-top:10px">تلاش مجدد</button></div>';
+  }
+})();
+</script>
+</body>
+</html>
